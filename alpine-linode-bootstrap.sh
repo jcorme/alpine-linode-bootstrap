@@ -35,9 +35,9 @@ EOF
 cat <<EOF > /alpine/etc/inittab
 # /etc/inittab
     
-::sysinit:/sbin/rc sysinit
-::sysinit:/sbin/rc boot
-::wait:/sbin/rc default
+::sysinit:/sbin/openrc sysinit
+::sysinit:/sbin/openrc boot
+::wait:/sbin/openrc default
     
 # Put a getty on the serial port
 ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100
@@ -46,7 +46,7 @@ ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100
 ::ctrlaltdel:/sbin/reboot
     
 # Stuff to do before rebooting
-::shutdown:/sbin/rc shutdown
+::shutdown:/sbin/openrc shutdown
 EOF
 
 mkdir /alpine/boot/grub
