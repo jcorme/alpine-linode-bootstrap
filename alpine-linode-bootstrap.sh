@@ -32,7 +32,6 @@ $BOOT_DEV    /boot   ext4    defaults,noatime    0  1
 $SWAP_DEV    swap    swap    defaults    0   0
 EOF
 
-
 cat <<EOF > /alpine/etc/inittab
 # /etc/inittab
     
@@ -82,6 +81,7 @@ apk update
 setup-hostname -n $HOST
 printf "$INTERFACES" | setup-interfaces -i
 
+rc-update add networking boot
 rc-update add urandom boot
 rc-update add cron
 
