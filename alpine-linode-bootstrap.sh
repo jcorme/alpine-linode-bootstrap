@@ -65,7 +65,7 @@ echo ttyS0 >> /alpine/etc/securetty
 mount --bind /proc /alpine/proc
 mount --bind /dev /alpine/dev
 
-chroot /alpine /bin/sh
+chroot /alpine /bin/sh<<CHROOT
 
 setup-apkrepos -f
 apk update
@@ -76,3 +76,5 @@ rc-update add urandom boot
 rc-update add cron
 
 apk add linux-grsec
+
+CHROOT
