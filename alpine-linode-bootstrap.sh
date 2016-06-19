@@ -1,6 +1,13 @@
 #!/bin/sh
 
 HOST=${HOST:-alpine}
+INTERFACES="auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+  hostname $HOST
+"
 
 APK_TOOLS_VER="2.6.7-r0"
 ARCH=$(uname -m)
@@ -71,9 +78,10 @@ chroot /alpine /bin/sh<<CHROOT
 
 setup-apkrepos -f
 apk update
-setup-hostname -n $HOST
 
-rc-update add networking boot
+setup-hostname -n $HOST
+printf "$INTERFACES" | setup-interfaces -i
+
 rc-update add urandom boot
 rc-update add cron
 
