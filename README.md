@@ -21,3 +21,7 @@ Once that finishes, shut the Linode down from recovery mode and, staying in the 
     boot 1
 
 After a bit, you should be at the Alpine login screen. The root user, by default, does not have a password. At this point, you can install an SSH server, which pretty much completes the installation.
+
+## Credit
+
+This script is basically [Andy Leap's guide](https://github.com/andyleap/docs/blob/master/docs/tools-reference/custom-kernels-distros/install-alpine-linux-on-your-linode.md) written as a working script (with fixed networking!), so big thanks to him.
