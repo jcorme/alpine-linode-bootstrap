@@ -1,5 +1,7 @@
 #!/bin/sh
 
+HOST=${HOST:-alpine}
+
 APK_TOOLS_VER="2.6.7-r0"
 ARCH=$(uname -m)
 MIRROR="http://nl.alpinelinux.org/alpine"
